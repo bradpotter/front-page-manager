@@ -1,41 +1,65 @@
 <?php
 /**
- * Registers Front Page Manger option with the WordPress Customizer
- *
- */	
-function register_customizer_front_page( $wp_customize ) {
+ * 
+ */
+class Front_Page_Customizer extends Genesis_Customizer_Base {
 
-	/* - - - - - Front Page Section - - - - - */
+	/**
+	 * Settings field.
+	 */
+	public $settings_field = 'genesis-settings';
 
-	$wp_customize->add_section( 'front_page_section', array(
-		'title'          => __( 'Front Page', 'front-page-manager' ),
-		'priority'       => 10,
-	) );
+	/**
+	 *
+	 */
+	public function register( $wp_customize ) {
 
-	/* - - - - - Front Page Selector - - - - - */
+		$this->front_page_manager( $wp_customize );		
+	}
 
-	$wp_customize->add_setting(
-		'front_page_selector',
-		array(
-			'default'     => '',
-			'transport'   => 'refresh'
-		)
-	);
+	private function front_page_manager( $wp_customize ) {
+		
+		$wp_customize->add_section(
+			'front_page_section',
+			array(
+				'title'    => 'Front Page Manager',
+				'priority' => 10,
+			)
+		);
 
-	$wp_customize->add_control(
-		'front_page_selector',
-		array(
-			'type'     => 'select',
-			'label'    => 'Select Front Page',
-			'section'  => 'front_page_section',
-			'settings' => 'front_page_selector',
-			'choices'  => genesis_get_option('front_page_select'),
-		)
-	);
+		$wp_customize->add_setting(
+			$this->get_field_name( 'front_page_select' ),
+			array(
+				'default' => 'front-page.php',
+				'type'    => 'option',
+			)
+		);
+
+		$wp_customize->add_control(
+			'genesis_front_page_select',
+			array(
+				'label'    => 'Select Front Page',
+				'section'  => 'front_page_section',
+				'settings' => $this->get_field_name( 'front_page_select' ),
+				'type'     => 'select',
+				'choices'  => array( 
+					'front-page.php' => __( 'front-page.php', 'front-page-manager' ),
+					'front-page-two.php' => __( 'front-page-two.php', 'front-page-manager' ),
+					'front-page-three.php' => __( 'front-page-three.php', 'front-page-manager' ),
+					'front-page-four.php' => __( 'front-page-four.php', 'front-page-manager' ),
+					'front-page-five.php'   => __( 'front-page-five.php', 'front-page-manager' ),
+				),
+			)			
+		);
+		
+	}
 
 }
-add_action( 'customize_register', 'register_customizer_front_page' );
 
-
-
-
+add_action( 'init', 'front_page_customizer_init' );
+/**
+ * 
+ */
+function front_page_customizer_init() {
+	new Front_Page_Customizer;
+}
