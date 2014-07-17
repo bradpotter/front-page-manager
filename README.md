@@ -36,6 +36,10 @@ The Customizer feature of this plugin is non-functional. This plugin is experime
 
 A video of the plugin in action can be seen at: [http://bradpotter.com/front-page-manager-plugin/](http://bradpotter.com/front-page-manager-plugin/)
 
+## Contributors
+
+Thanks to [Rob Neu](https://twitter.com/rob_neu) for his assistance.
+
 ## Credits
 
 Created by [Brad Potter](https://twitter.com/bradleypotter)  
