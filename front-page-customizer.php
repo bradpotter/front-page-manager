@@ -5,7 +5,6 @@
  */	
 function register_customizer_front_page( $wp_customize ) {
 
-
 	/* - - - - - Front Page Section - - - - - */
 
 	$wp_customize->add_section( 'front_page_section', array(
