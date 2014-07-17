@@ -58,7 +58,7 @@ function front_page_manager_include( $template ) {
         	$frontpagemanager = genesis_get_option( 'front_page_select' );
 
         	if ( $frontpagemanager && preg_match( '#^front-page-[a-z0-9-]+\.php$#', $frontpagemanager ) ) {
-        		return CHILD_DIR . '/' . $frontpagemanager;
+        		return get_stylesheet_directory() . '/' . $frontpagemanager;
         	}
 	}
 	return $template;
