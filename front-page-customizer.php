@@ -62,8 +62,8 @@ function fpm_genesis_customizer_init() {
 function fpm_get_templates_for_customizer() {
 	$templates = array();
 
-	foreach ( (array) glob( CHILD_DIR . "/front-page*.php" ) as $template ) {
-		$templates[] = str_replace( CHILD_DIR . '/', '', $template );
+	foreach ( (array) glob( get_stylesheet_directory() . "/front-page*.php" ) as $template ) {
+		$templates[] = str_replace( get_stylesheet_directory() . '/', '', $template );
 	}
 
 	$templates = array_combine( $templates, $templates );
