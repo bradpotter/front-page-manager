@@ -38,7 +38,7 @@ A video of the plugin in action can be seen at: [http://bradpotter.com/front-pag
 
 ## Contributors
 
-Thanks to [Rob Neu](https://twitter.com/rob_neu) for his assistance.
+Thanks to [Rob Neu](https://twitter.com/rob_neu) and [Gary Jones](https://twitter.com/garyj) for their assistance.
 
 ## Credits
 
