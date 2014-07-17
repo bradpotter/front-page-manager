@@ -1,6 +1,6 @@
 <?php
 /**
- * Registers Front Page Manger option with the WordPress Customizer
+ * Register Front Page Manger option with the WordPress Customizer
  *
  */
 class FPM_Genesis_Customizer extends Genesis_Customizer_Base {
@@ -39,7 +39,7 @@ class FPM_Genesis_Customizer extends Genesis_Customizer_Base {
 		$wp_customize->add_control(
 			'genesis_front_page_select',
 			array(
-				'label'    => 'Select Front Page',
+				'label'    => __( 'Select FFront Page', 'front-page-manager' ),
 				'section'  => 'front_page_manager',
 				'settings' => $this->get_field_name( 'front_page_select' ),
 				'type'     => 'select',

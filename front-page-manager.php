@@ -2,11 +2,11 @@
 /**
  * Front Page Manager
  *
- * @package           Front_Page_Manager
+ * @package           FrontPageManager
  * @author            Brad Potter
  * @license           GPL-2.0+
  * @link              http://www.bradpotter.com/plugins/front-page-manager
- * @copyright         Copyright (c) 2014, Brad Potter
+ * @copyright         2014, Brad Potter
  *
  * @wordpress-plugin
  * Plugin Name:       Front Page Manager
@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Setting constants
  */
 define( 'FPM_PLUGIN_DIR', dirname( __FILE__ ) );
-define( 'FPM_URL' , WP_PLUGIN_URL . '/' . str_replace( basename( __FILE__ ), "" , plugin_basename( __FILE__ ) ) );
+define( 'FPM_URL' , plugins_url() . '/' . str_replace( basename( __FILE__ ), "" , plugin_basename( __FILE__ ) ) );
 
 /**
  * Required files if Admin
@@ -53,7 +53,7 @@ function fpm_init() {
  */
 add_filter( 'template_include', 'front_page_manager_include' );
 function front_page_manager_include( $template ) {
-	if( is_home() || is_front_page() ) {
+	if ( is_home() || is_front_page() ) {
         
         	$frontpagemanager = genesis_get_option( 'front_page_select' );
 

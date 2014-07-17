@@ -2,22 +2,22 @@
 /**
  * Front Page Manager
  *
- * @package   Front_Page_Manager
+ * @package   FrontPageManager
  * @author    Brad Potter
  * @license   GPL-2.0+
  * @link      http://www.bradpotter.com/plugins/front-page-manager
- * @copyright Copyright (c) 2014, Brad Potter
+ * @copyright 2014, Brad Potter
  */
 
 /**
  * Add metabox for Front Page Manager
  */
-add_action( 'genesis_theme_settings_metaboxes', 'front_page_manager_metaboxes', 10, 1 );
 function front_page_manager_metaboxes( $pagehook ) {
 
 	add_meta_box( 'front-page-manager', __( 'Front Page Manager', 'front-page-manager' ), 'front_page_metabox', $pagehook, 'main', 'high' );
 
 }
+add_action( 'genesis_theme_settings_metaboxes', 'front_page_manager_metaboxes', 10, 1 );
 
 /**
  * Content for the Front Page Manager metabox
@@ -29,18 +29,18 @@ function front_page_metabox() {
 ?>
 
     <p> 
-        <select name="<?php echo GENESIS_SETTINGS_FIELD; ?>[front_page_select]">
+        <select name="<?php echo esc_attr( GENESIS_SETTINGS_FIELD . '[front_page_select]' ); ?>">
             <?php
             foreach ( glob(CHILD_DIR . "/front-page*.php") as $file ) {
-            $file = str_replace( CHILD_DIR . '/', '', $file );
+            $file = str_replace( get_stylesheet_directory() . '/', '', $file );
             
             ?>
                 
-            <option value="<?php echo esc_attr( $file ); ?>" <?php selected($file, $frontpageselect); ?>><?php echo esc_html( $file ); ?></option>
+            <option value="<?php echo esc_attr( $file ); ?>"<?php selected($file, $frontpageselect); ?>><?php echo esc_html( $file ); ?></option>
             
             <?php } ?>
         </select>
     </p>
-    <p><span class="description">Select your desired <b>Front Page</b> from the drop down list and save your settings.</span></p>
+    <p><span class="description">Select your desired Front Page from the drop down list and save settings.</span></p>
 <?php
 }
