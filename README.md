@@ -34,7 +34,7 @@ The Customizer feature of this plugin is non-functional. This plugin is experime
 
 ## Demo
 
-A demo of the plugin in action can be seen at: [http://bradpotter.com/front-page-manager-plugin/](http://bradpotter.com/front-page-manager-plugin/)
+A video of the plugin in action can be seen at: [http://bradpotter.com/front-page-manager-plugin/](http://bradpotter.com/front-page-manager-plugin/)
 
 ## Credits
 
