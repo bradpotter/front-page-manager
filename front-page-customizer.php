@@ -1,8 +1,9 @@
 <?php
 /**
- * 
+ * Registers Front Page Manger option with the WordPress Customizer
+ *
  */
-class Front_Page_Customizer extends Genesis_Customizer_Base {
+class FPM_Genesis_Customizer extends Genesis_Customizer_Base {
 
 	/**
 	 * Settings field.
@@ -14,13 +15,13 @@ class Front_Page_Customizer extends Genesis_Customizer_Base {
 	 */
 	public function register( $wp_customize ) {
 
-		$this->front_page_manager( $wp_customize );		
+		$this->front_page( $wp_customize );
 	}
 
-	private function front_page_manager( $wp_customize ) {
-		
+	private function front_page( $wp_customize ) {
+
 		$wp_customize->add_section(
-			'front_page_section',
+			'front_page_manager',
 			array(
 				'title'    => 'Front Page Manager',
 				'priority' => 10,
@@ -30,7 +31,7 @@ class Front_Page_Customizer extends Genesis_Customizer_Base {
 		$wp_customize->add_setting(
 			$this->get_field_name( 'front_page_select' ),
 			array(
-				'default' => 'front-page.php',
+				'default' => $this->get_field_name( 'front_page_select' ),
 				'type'    => 'option',
 			)
 		);
@@ -39,27 +40,33 @@ class Front_Page_Customizer extends Genesis_Customizer_Base {
 			'genesis_front_page_select',
 			array(
 				'label'    => 'Select Front Page',
-				'section'  => 'front_page_section',
+				'section'  => 'front_page_manager',
 				'settings' => $this->get_field_name( 'front_page_select' ),
 				'type'     => 'select',
-				'choices'  => array( 
-					'front-page.php' => __( 'front-page.php', 'front-page-manager' ),
-					'front-page-two.php' => __( 'front-page-two.php', 'front-page-manager' ),
-					'front-page-three.php' => __( 'front-page-three.php', 'front-page-manager' ),
-					'front-page-four.php' => __( 'front-page-four.php', 'front-page-manager' ),
-					'front-page-five.php'   => __( 'front-page-five.php', 'front-page-manager' ),
-				),
-			)			
+				'choices'  => fpm_get_templates_for_customizer(),
+			)
 		);
-		
+
 	}
 
 }
 
-add_action( 'init', 'front_page_customizer_init' );
+add_action( 'init', 'fpm_genesis_customizer_init' );
 /**
- * 
+ *
  */
-function front_page_customizer_init() {
-	new Front_Page_Customizer;
+function fpm_genesis_customizer_init() {
+	new FPM_Genesis_Customizer;
+}
+
+function fpm_get_templates_for_customizer() {
+	$templates = array();
+
+	foreach ( (array) glob( CHILD_DIR . "/front-page*.php" ) as $template ) {
+		$templates[] = str_replace( CHILD_DIR . '/', '', $template );
+	}
+
+	$templates = array_combine( $templates, $templates );
+
+	return $templates;
 }
