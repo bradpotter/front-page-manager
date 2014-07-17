@@ -49,17 +49,49 @@ function fpm_init() {
 }
 
 /**
- * Template Include
+ * Return pattern for front-page template file name.
+ *
+ * @since 1.0.0
+ *
+ * @return string Regular expression pattern.
  */
-add_filter( 'template_include', 'front_page_manager_include' );
-function front_page_manager_include( $template ) {
-	if ( is_home() || is_front_page() ) {
-        
-        	$frontpagemanager = genesis_get_option( 'front_page_select' );
-
-        	if ( $frontpagemanager && preg_match( '#^front-page-[a-z0-9-]+\.php$#', $frontpagemanager ) ) {
-        		return get_stylesheet_directory() . '/' . $frontpagemanager;
-        	}
-	}
-	return $template;
+function fpm_get_file_name_pattern() {
+    return '#^front-page-[a-z0-9-]+\.php$#';
 }
+
+/**
+ * Provided file name matches pattern for expected front page templates.
+ *
+ * @since 1.0.0
+ *
+ * @param string $file_name File name that may be a front page template.
+ *
+ * @return bool True if pattern matches, false otherwise.
+ */
+function fpm_is_file_name_match( $file_name ) {
+    return preg_match( fpm_get_file_name_pattern(), $file_name );
+}
+
+/**
+ * Potentially switch to chosen front page template.
+ *
+ * @since 1.0.0
+ *
+ * @param string $template Existing template path.
+ *
+ * @return string Potentially amended template path.
+ */
+function front_page_manager_include( $template ) {
+    if ( ! is_home() && ! is_front_page() ) {
+        return $template;
+    }
+
+    $front_page_manager = genesis_get_option( 'front_page_select' );
+
+    if ( $front_page_manager && fpm_is_file_name_match ( $front_page_manager ) ) {
+        return trailingslashit( get_stylesheet_directory() ) . $front_page_manager;
+    }
+
+    return $template;
+}
+add_filter( 'template_include', 'front_page_manager_include' );

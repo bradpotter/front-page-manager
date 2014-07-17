@@ -11,18 +11,22 @@
 
 /**
  * Add metabox for Front Page Manager
+ *
+ * @since 1.0.0
  */
 function front_page_manager_metaboxes( $pagehook ) {
 
-	add_meta_box( 'front-page-manager', __( 'Front Page Manager', 'front-page-manager' ), 'front_page_metabox', $pagehook, 'main', 'high' );
+	add_meta_box( 'front-page-manager', __( 'Front Page Manager', 'front-page-manager' ), 'front_page_manager_content', $pagehook, 'main', 'high' );
 
 }
 add_action( 'genesis_theme_settings_metaboxes', 'front_page_manager_metaboxes', 10, 1 );
 
 /**
- * Content for the Front Page Manager metabox
+ * Add content for Front Page Manager metabox
+ *
+ * @since 1.0.0
  */
-function front_page_metabox() {
+function front_page_manager_content() {
     
     // set the default selection (if empty)
     $frontpageselect = genesis_get_option('front_page_select') ? genesis_get_option('front_page_select') : 'front-page.php';
