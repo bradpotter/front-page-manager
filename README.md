@@ -26,7 +26,11 @@ Check out the Codex for more information about [installing plugins manually](htt
 
 ## Usage
 
-The Front Page Manager plugin for Genesis provides a method to select from various Front Pages for the Genesis Framework. You can select from a list of front pages in the Genesis Theme Settings page. The developer creates various front-page files using the name pattern of "front-page-x.php" and places those files in the child theme root directory. The developer is also responsible for creating the neccessary CSS to account for various front page layouts. The plugin simply allows for the end user to change their front page via a convenient drop down menu in the Genesis Theme Settings page.
+The Front Page Manager plugin for Genesis provides a method to select from various Front Pages for the Genesis Framework. You can select from a list of front pages in the Genesis Theme Settings page. The developer creates various front-page files using the name pattern of "front-page-x.php" and places those files in the child theme root directory. The developer is also responsible for creating the necessary CSS to account for various front page layouts. The plugin simply allows for the end user to change their front page via a convenient drop down menu in the Genesis Theme Settings page.
+
+## Issues
+
+The Customizer feature of this plugin is non functional. This plugin is experimental. Do not use in a production site.
 
 ## Credits
 
