@@ -15,7 +15,7 @@
 add_action( 'genesis_theme_settings_metaboxes', 'front_page_manager_metaboxes', 10, 1 );
 function front_page_manager_metaboxes( $pagehook ) {
 
-	add_meta_box( 'front-page-manager', __( 'Front Page Manager', 'genesis-front-page-manager' ), 'front_page_metabox', $pagehook, 'main', 'high' );
+	add_meta_box( 'front-page-manager', __( 'Front Page Manager', 'front-page-manager' ), 'front_page_metabox', $pagehook, 'main', 'high' );
 
 }
 
