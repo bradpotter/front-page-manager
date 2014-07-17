@@ -31,7 +31,7 @@ function front_page_metabox() {
     <p> 
         <select name="<?php echo esc_attr( GENESIS_SETTINGS_FIELD . '[front_page_select]' ); ?>">
             <?php
-            foreach ( glob(CHILD_DIR . "/front-page*.php") as $file ) {
+            foreach ( glob( get_stylesheet_directory() . "/front-page*.php") as $file ) {
             $file = str_replace( get_stylesheet_directory() . '/', '', $file );
             
             ?>
