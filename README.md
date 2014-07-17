@@ -30,7 +30,7 @@ The Front Page Manager plugin for Genesis provides a method to select from vario
 
 ## Issues
 
-The Customizer feature of this plugin is non functional. This plugin is experimental. Do not use in a production site.
+The Customizer feature of this plugin is non-functional. This plugin is experimental. Do not use in a production site.
 
 ## Credits
 
