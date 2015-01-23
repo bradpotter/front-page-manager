@@ -30,7 +30,7 @@ The Front Page Manager plugin for Genesis provides a method to select from vario
 
 ## Issues
 
-The Customizer feature of this plugin currently does not show the results of the selected front page in the preview pane unless you manually refresh the page. This plugin is experimental. Do not use in a production site if that issue is not acceptable.
+The Customizer feature of this plugin currently does not show the results of the selected front page in the preview pane unless you manually refresh the page. This plugin is experimental. Do not use in a production site if that issue is unacceptable.
 
 ## Demo
 
