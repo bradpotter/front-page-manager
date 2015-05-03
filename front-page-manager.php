@@ -44,8 +44,9 @@ function fpm_init() {
 
 		if ( is_admin() ) {
 			require_once( FPM_PLUGIN_DIR . '/front-page-manager-functions.php' );
-			require_once( FPM_PLUGIN_DIR . '/front-page-customizer.php' );
 		}
+		
+		require_once( FPM_PLUGIN_DIR . '/front-page-customizer.php' );
 }
 
 /**
